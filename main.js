@@ -9,7 +9,7 @@ let gif4 = document.querySelector("#gif4");
 let gif5 = document.querySelector("#gif5");
 let gif6 = document.querySelector("#gif6");
 let gif7= document.querySelector("#gif7");
-const rotation = [30, 60, 90, 120];
+let audio = new Audio("music/Yellow-Coldplay.mp3");
 
 noBtn.addEventListener("mouseover", () => {
     let X = Math.random() * 300 - 150;
@@ -23,8 +23,10 @@ const yesBtnClicked = () => {
     noBtn.style.display = "none";
     yesBtn.style.display = "none";
 
-    let audio = new Audio("music/Yellow-Coldplay.mp3");
-    audio.play();
+   
+    if (audio.paused) {
+        audio.play(); // Play only if it's not already playing
+    }
 
     // Add glowing effect to the card
     card.classList.add("glow-effect");
